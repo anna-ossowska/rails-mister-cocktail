@@ -1,0 +1,54 @@
+<div class="container">
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"><i class="fas fa-cocktail pr-3"></i>COCKTAIL KIT</a>
+  
+    <form class="form-inline">
+      <li class="nav-item list-unstyled">
+        <a class="nav-link active" href="#">Pricing</a>
+      </li>
+      <li class="nav-item list-unstyled">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item list-unstyled">
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Sign in</button>
+      </li>
+    </form>
+  </nav>
+
+  <!-- cards -->
+  <div class="container text-center">
+    <h1 class="mt-4">Explore our cocktails</h1>
+    <br>
+    <div class="row">
+      <% @cocktails.each do |cocktail| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card border-0 py-5 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/weekly?cocktail');">
+            <div class="card-description">
+              <h2 class="text-white font-weight-light"><%= cocktail.name %></h2>
+            </div>
+            <%= link_to "", cocktail_path(cocktail), class: "stretched-link" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  
+</div>
+
+<!-- newsletter -->
+<div class="container bg-light p-4 mt-4">
+  <div class="text-center padded" id="newsletter">
+    <h2>Get news from us</h2>
+    <p>Subscribe to our newsletter</p>
+    <br>
+    <form class="form-inline d-flex justify-content-center" ">
+      <input type="email" placeholder="myname@gmail.com" class="form-control">
+      <input type="submit" value="Subscribe" class="btn btn-primary btn-bordered btn-bordered-primary">
+    </form>
+</div>
+
+
+
+
+</div>
