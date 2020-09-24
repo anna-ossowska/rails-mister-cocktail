@@ -1,14 +1,70 @@
 <div class="container">
-    <h2><%= @cocktail.name %></h2>
-    <% @cocktail.doses.each do |dose| %>
-      <%= dose.description %>
-    <% end %> 
-    
-    <div>
-      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
-    </div>
 
-    <br>
-    <%= link_to "Go back to cocktails", cocktails_path %>
-    
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"><i class="fas fa-cocktail pr-3"></i>COCKTAIL KIT</a>
+  
+    <form class="form-inline">
+      <li class="nav-item list-unstyled">
+        <a class="nav-link active" href="#">Pricing</a>
+      </li>
+      <li class="nav-item list-unstyled">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item list-unstyled">
+        <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+      </li>
+    </form>
+  </nav>
+</div>
+
+
+<div class="container mt-3 w-25">
+  <h2 class="text-success text-uppercase"><%= @cocktail.name %></h2>
+  <br>
+    <div class="form">
+      <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
+        <%= form.association :ingredient %>
+        <%= form.input :description %>
+        <%= form.button :submit, class: "btn btn-primary" %>
+        <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
+      <% end %>
+    </div>
+</div>
+
+<div class="containner p-3 mt-4">
+<div class="container">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between align-content-stretch">
+          <div class="card m-2" style="width: 50vw;">
+            <div class="card-body">
+              <strong><p class="card-title pb-3">Ingredient</p></strong>
+              <% @cocktail.doses.each do |dose| %>
+                <p class="card-text"><%= dose.ingredient.name %></p>
+              <% end %> 
+            </div>
+          </div>
+
+          <div class="card m-2" style="width: 50vw;">
+            <div class="card-body">
+              <strong><p class="card-title pb-3">Description</p></strong>
+              <% @cocktail.doses.each do |dose| %>
+                <p class="card-text"><%= dose.description %></p>
+              <% end %> 
+            </div>
+          </div>
+
+          <div class="card m-2" style="width: 25vw;">
+            <div class="card-body">
+              <strong><p class="card-title pb-3">Delete</p></strong>
+                <% @cocktail.doses.each do |dose| %>
+                  <p class="card-text"></p>
+                    <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+                      <i class="fa fa-trash destroy_dose"></i>
+                    <% end %>
+                <% end %> 
+            </div>
+          </div>
+      </div>
+    </div>
+</div>
 </div>
