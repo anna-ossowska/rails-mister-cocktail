@@ -1,6 +1,7 @@
 <div class="container mt-3 w-25">
   <%= simple_form_for [@cocktail] do |f| %>
     <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit "Save cocktail", class: "btn btn-primary" %>
   <% end %>
 </div>

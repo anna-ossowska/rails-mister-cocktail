@@ -13,7 +13,29 @@
   </head>
 
   <body>
-  
+
+    <div class="container sticky-top">
+
+        <nav class="navbar navbar-light bg-light justify-content-between">
+          <a class="navbar-brand"><i class="fas fa-cocktail pr-3 text-success"></i>COCKTAIL KIT</a>
+        
+          <form class="form-inline">
+            <li class="nav-item list-unstyled">
+              <a class="nav-link active" href="#">Pricing</a>
+            </li>
+            <li class="nav-item list-unstyled">
+              <a class="nav-link" href="#">Features</a>
+            </li>
+            <li class="nav-item list-unstyled">
+              <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+            </li>
+          </form>
+        </nav>
+      </div>
+      
+    </div>
+
     <%= yield %>
+
   </body>
 </html>

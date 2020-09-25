@@ -1,12 +1,17 @@
-<div class="container mt-3 w-25">
-  <h1><%= @cocktail.name %></h1>
-  <br>
-    <div class="form">
-      <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
-        <%= form.association :ingredient %>
-        <%= form.input :description %>
-        <%= form.button :submit, class: "btn btn-primary" %>
-        <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
-      <% end %>
-    </div>
+<div class="container pt-3">
+  <div class="container mt-3 w-25">
+    <h2 class="text-success text-uppercase text-center m-2"><%= @cocktail.name %></h2>
+      <div class="container d-flex justify-content-center">
+        <p><%= image_tag @cocktail.photo, height: 250, width: 250, crop: :fill, class: "rounded center" %></p>
+      </div>
+      <br>
+      <div class="form">
+        <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
+          <%= form.association :ingredient %>
+          <%= form.input :description %>
+          <%= form.button :submit, class: "btn btn-primary" %>
+          <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
+        <% end %>
+      </div>
+  </div>
 </div>

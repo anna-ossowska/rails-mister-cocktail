@@ -1,34 +1,21 @@
-<div class="container">
-
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand"><i class="fas fa-cocktail pr-3 text-success"></i>COCKTAIL KIT</a>
-  
-    <form class="form-inline">
-      <li class="nav-item list-unstyled">
-        <a class="nav-link active" href="#">Pricing</a>
-      </li>
-      <li class="nav-item list-unstyled">
-        <a class="nav-link" href="#">Features</a>
-      </li>
-      <li class="nav-item list-unstyled">
-        <%= link_to "Add new cocktail", new_cocktail_path, class: "btn btn-primary" %>
-      </li>
-    </form>
-  </nav>
-</div>
 
 
-<div class="container mt-3 w-25">
-  <h2 class="text-success text-uppercase"><%= @cocktail.name %></h2>
-  <br>
-    <div class="form">
-      <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
-        <%= form.association :ingredient %>
-        <%= form.input :description %>
-        <%= form.button :submit, class: "btn btn-primary" %>
-        <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
-      <% end %>
-    </div>
+<div class="container pt-3">
+  <div class="container mt-3 w-25">
+    <h2 class="text-success text-uppercase text-center m-2"><%= @cocktail.name %></h2>
+      <div class="container d-flex justify-content-center">
+        <p><%= image_tag @cocktail.photo, height: 250, width: 250, crop: :fill, class: "rounded center" %></p>
+      </div>
+      <br>
+      <div class="form">
+        <%= simple_form_for([ @cocktail, @dose ]) do |form| %>
+          <%= form.association :ingredient %>
+          <%= form.input :description %>
+          <%= form.button :submit, class: "btn btn-primary" %>
+          <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
+        <% end %>
+      </div>
+  </div>
 </div>
 
 <div class="containner p-3 mt-4">
@@ -68,3 +55,4 @@
     </div>
 </div>
 </div>
+
