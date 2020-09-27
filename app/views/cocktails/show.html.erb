@@ -12,7 +12,7 @@
           <%= form.association :ingredient %>
           <%= form.input :description %>
           <%= form.button :submit, class: "btn btn-primary" %>
-          <span class="pl-3"><%= link_to "Home", cocktails_path %></span>
+          <span class="pl-3"><%= link_to "Home", cocktails_path, class: "text-decoration-none" %></span>
         <% end %>
       </div>
   </div>
@@ -46,7 +46,7 @@
                 <% @cocktail.doses.each do |dose| %>
                   <p class="card-text"></p>
                     <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
-                      <i class="fa fa-trash destroy_dose"></i>
+                      <i class="fa fa-trash"></i>
                     <% end %>
                 <% end %> 
             </div>
@@ -55,4 +55,3 @@
     </div>
 </div>
 </div>
-
